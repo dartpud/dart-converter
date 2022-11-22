@@ -6,7 +6,7 @@
     "start": "ng serve --open",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "build-prod": "ng build --configuration development --output-path docs --base-href /dart-converter/",
+    "build-prod": "ng build --configuration development --output-path docs --base-href /dart_converter/",
     "test": "ng test"
   },
   "private": true,

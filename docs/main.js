@@ -37,7 +37,7 @@ const routes = [
     },
     {
         path: '**',
-        component: _pages_home_home_component__WEBPACK_IMPORTED_MODULE_0__.HomeComponent
+        redirectTo: 'home'
     }
 ];
 class AppRoutingModule {

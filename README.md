@@ -129,6 +129,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6I
 
 ## Finalizei a conversão, e agora?
 
-Após a finalização o projeto deve ser hospedado no github e o link do repositório compartilhado para que possamos validar, após isso entraremos em contato com o feedback :)
+Após a finalização o projeto deve ser hospedado no github e o link do repositório compartilhado para que possamos validar.\
+Não é necessário publicar o site porém o projeto deve estar funcional para que possamos baixá-lo e executá-lo localmente.\
+Após isso entraremos em contato com o feedback :)
 
 [Dart Digital](https://www.dartdigital.com.br/)

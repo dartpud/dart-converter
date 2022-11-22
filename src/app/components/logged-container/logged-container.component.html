@@ -1,0 +1,18 @@
+<div class="container">
+
+    <mat-toolbar color="primary">
+
+        <mat-toolbar-row>
+            <span class="title" (click)="refresh()">
+                Dart Converter
+            </span>
+            <span class="spacer"></span>
+            <label class="exit" (click)="exit()">
+                Sair
+            </label>
+        </mat-toolbar-row>
+
+    </mat-toolbar>
+
+    <ng-content></ng-content>
+</div>

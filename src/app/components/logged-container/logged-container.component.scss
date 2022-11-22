@@ -1,0 +1,22 @@
+.container {
+    width: 100%;
+    height: 100vh;
+    background-color: lightcyan;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.title {
+    color: #ffd740; 
+}
+
+.title, .exit {
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+        opacity: 0.5;
+    }
+}

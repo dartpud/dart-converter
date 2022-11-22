@@ -1,0 +1,106 @@
+<app-logged-container [user]="userLogged">
+
+    <div class="home-container">
+
+        <app-page-title>
+            Olá {{userLogged.username}},
+            <br />
+            <br />
+            Segue a lista de usuários cadastrados no sistema.
+        </app-page-title>
+
+        <button mat-flat-button color="primary" class="btn-add-user" (click)="addRow()">
+            CRIAR NOVO USUÁRIO
+        </button>
+
+        <table mat-table [dataSource]="userList">
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef width="10%">
+                    ID
+                </th>
+                <td mat-cell *matCellDef="let element" width="10%">
+                    {{element.id_user}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="username">
+                <th mat-header-cell *matHeaderCellDef width="25%">
+                    Usuário
+                </th>
+                <td mat-cell *matCellDef="let element" width="25%">
+                    <ng-container *ngIf="!element.isEdit && !element.isAdd">
+                        {{element.username}}
+                    </ng-container>
+                    <mat-form-field floatLabel="never" *ngIf="element.isEdit || element.isAdd">
+                        <input matInput placeholder="Usuário" [value]="element.username" [(ngModel)]="element.username">
+                    </mat-form-field>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="password">
+                <th mat-header-cell *matHeaderCellDef width="25%">
+                    Senha
+                </th>
+                <td mat-cell *matCellDef="let element" width="25%">
+                    <ng-container *ngIf="!element.isEdit && !element.isAdd">
+                        ?
+                    </ng-container>
+                    <ng-container *ngIf="element.isEdit || element.isAdd">
+                        <button mat-stroked-button color="primary" *ngIf="!element.changePassword" (click)="element.changePassword = !element.changePassword">
+                            ALTERAR SENHA
+                        </button>
+                        <mat-form-field floatLabel="never" *ngIf="element.changePassword">
+                            <input matInput [type]="element.hidePassword ? 'password' : 'text'" placeholder="Senha" [value]="element.password"
+                                [(ngModel)]="element.password">
+                            <button mat-icon-button matSuffix (click)="element.hidePassword = !element.hidePassword"
+                                [attr.aria-label]="(element.hidePassword ? 'Exibir' : 'Ocultar') + ' senha'">
+                                <mat-icon>{{element.hidePassword ? 'visibility' : 'visibility_off'}}</mat-icon>
+                            </button>
+                        </mat-form-field>
+                    </ng-container>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="id_application">
+                <th mat-header-cell *matHeaderCellDef width="25%">
+                    Aplicação
+                </th>
+                <td mat-cell *matCellDef="let element" width="25%">
+                    {{element.id_application}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef width="15%" style="text-align: center">
+                    Ações
+                </th>
+                <td mat-cell *matCellDef="let element" width="15%" style="text-align: center">
+                    <ng-container *ngIf="!element.isEdit && !element.isAdd">
+                        <button mat-icon-button color="primary" aria-label="Editar" (click)="element.isEdit = !element.isEdit">
+                            <mat-icon>
+                                edit
+                            </mat-icon>
+                        </button>
+                        <button mat-icon-button color="warn" aria-label="Excluir" (click)="deleteUser(element)">
+                            <mat-icon>
+                                delete
+                            </mat-icon>
+                        </button>
+                    </ng-container>
+                    <ng-container *ngIf="element.isEdit || element.isAdd">
+                        <button mat-icon-button color="primary" aria-label="Salvar" (click)="element.isEdit ? editUser(element) : addUser(element)">
+                            <mat-icon>
+                                save
+                            </mat-icon>
+                        </button>
+                    </ng-container>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="columns"></tr>
+            <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+        </table>
+
+    </div>
+
+</app-logged-container>

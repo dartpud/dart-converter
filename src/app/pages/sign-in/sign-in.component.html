@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="card-sign-in">
+        <form [formGroup]="form" autocomplete="off">
+            <img src="/assets/images/logo-dart.png" />
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Usuário
+                </mat-label>
+                <input matInput type="text" formControlName="username" autocomplete="off">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>
+                    Senha
+                </mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" autocomplete="off">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="(hide ? 'Exibir' : 'Ocultar') + ' senha'">
+                    <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+                </button>
+            </mat-form-field>
+            <button mat-raised-button color="primary" (click)="trySignIn()">
+                Entrar
+            </button>
+            <button mat-stroked-button color="accent" class="link-sign-up" (click)="trySignUp()">
+                Cadastrar
+            </button>
+        </form>
+    </div>
+</div>

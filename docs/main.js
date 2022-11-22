@@ -14,7 +14,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ 2816);
 /* harmony import */ var _pages_home_home_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pages/home/home.component */ 5245);
 /* harmony import */ var _pages_home_home_guard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/home/home.guard */ 1053);
-/* harmony import */ var _pages_sign_in_guard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/sign-in.guard */ 6334);
+/* harmony import */ var _pages_sign_in_sign_in_guard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/sign-in/sign-in.guard */ 4752);
 /* harmony import */ var _pages_sign_in_sign_in_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/sign-in/sign-in.component */ 8147);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ 3184);
 
@@ -28,7 +28,7 @@ const routes = [
     {
         path: 'sign-in',
         component: _pages_sign_in_sign_in_component__WEBPACK_IMPORTED_MODULE_3__.SignInComponent,
-        canActivate: [_pages_sign_in_guard__WEBPACK_IMPORTED_MODULE_2__.SignInGuard]
+        canActivate: [_pages_sign_in_sign_in_guard__WEBPACK_IMPORTED_MODULE_2__.SignInGuard]
     },
     {
         path: 'home',
@@ -975,42 +975,6 @@ HomeGuard.ɵprov = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵ�
 
 /***/ }),
 
-/***/ 6334:
-/*!****************************************!*\
-  !*** ./src/app/pages/sign-in.guard.ts ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "SignInGuard": () => (/* binding */ SignInGuard)
-/* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3184);
-/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../services/auth.service */ 7556);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ 2816);
-
-
-
-class SignInGuard {
-    constructor(_authService, _router) {
-        this._authService = _authService;
-        this._router = _router;
-    }
-    canActivate(route, state) {
-        var _a;
-        if (this._authService.accessToken || (((_a = this._authService.user) === null || _a === void 0 ? void 0 : _a.id_user) && this._authService.user.id_user > 0)) {
-            this._router.navigate(['/home']);
-            return false;
-        }
-        return true;
-    }
-}
-SignInGuard.ɵfac = function SignInGuard_Factory(t) { return new (t || SignInGuard)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_services_auth_service__WEBPACK_IMPORTED_MODULE_0__.AuthService), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__.Router)); };
-SignInGuard.ɵprov = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: SignInGuard, factory: SignInGuard.ɵfac, providedIn: 'root' });
-
-
-/***/ }),
-
 /***/ 8147:
 /*!****************************************************!*\
   !*** ./src/app/pages/sign-in/sign-in.component.ts ***!
@@ -1136,6 +1100,42 @@ SignInComponent.ɵcmp = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_4__
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_4__["ɵɵtextInterpolate"](ctx.hide ? "visibility" : "visibility_off");
     } }, directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_3__["ɵNgNoValidate"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__.NgControlStatusGroup, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.FormGroupDirective, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_6__.MatFormField, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_6__.MatLabel, _angular_material_input__WEBPACK_IMPORTED_MODULE_7__.MatInput, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.FormControlName, _angular_material_button__WEBPACK_IMPORTED_MODULE_8__.MatButton, _angular_material_form_field__WEBPACK_IMPORTED_MODULE_6__.MatSuffix, _angular_material_icon__WEBPACK_IMPORTED_MODULE_9__.MatIcon], styles: [".container[_ngcontent-%COMP%] {\n  width: 100%;\n  height: 100vh;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: lightcyan;\n}\n\n.card-sign-in[_ngcontent-%COMP%] {\n  border: 5px solid #ffd740;\n  border-radius: 5px;\n  padding: 20px;\n  width: 320px;\n}\n\n.card-sign-in[_ngcontent-%COMP%]   form[_ngcontent-%COMP%] {\n  display: flex;\n  flex-direction: column;\n}\n\n.link-sign-up[_ngcontent-%COMP%] {\n  margin-top: 20px;\n}\n\nimg[_ngcontent-%COMP%] {\n  margin-bottom: 20px;\n  -webkit-user-select: none;\n          user-select: none;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNpZ24taW4uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxXQUFBO0VBQ0EsYUFBQTtFQUNBLGFBQUE7RUFDQSxtQkFBQTtFQUNBLHVCQUFBO0VBQ0EsMkJBQUE7QUFDSjs7QUFFQTtFQUNJLHlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxhQUFBO0VBQ0EsWUFBQTtBQUNKOztBQUNJO0VBQ0ksYUFBQTtFQUNBLHNCQUFBO0FBQ1I7O0FBR0E7RUFDSSxnQkFBQTtBQUFKOztBQUdBO0VBQ0ksbUJBQUE7RUFDQSx5QkFBQTtVQUFBLGlCQUFBO0FBQUoiLCJmaWxlIjoic2lnbi1pbi5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jb250YWluZXIge1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBoZWlnaHQ6IDEwMHZoO1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IGxpZ2h0Y3lhbjtcclxufVxyXG5cclxuLmNhcmQtc2lnbi1pbiB7XHJcbiAgICBib3JkZXI6IDVweCBzb2xpZCAjZmZkNzQwO1xyXG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gICAgcGFkZGluZzogMjBweDtcclxuICAgIHdpZHRoOiAzMjBweDtcclxuXHJcbiAgICBmb3JtIHtcclxuICAgICAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbiAgICB9XHJcbn1cclxuXHJcbi5saW5rLXNpZ24tdXAge1xyXG4gICAgbWFyZ2luLXRvcDogMjBweDtcclxufVxyXG5cclxuaW1nIHtcclxuICAgIG1hcmdpbi1ib3R0b206IDIwcHg7XHJcbiAgICB1c2VyLXNlbGVjdDogbm9uZTtcclxufSJdfQ== */"] });
+
+
+/***/ }),
+
+/***/ 4752:
+/*!************************************************!*\
+  !*** ./src/app/pages/sign-in/sign-in.guard.ts ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "SignInGuard": () => (/* binding */ SignInGuard)
+/* harmony export */ });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 3184);
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../services/auth.service */ 7556);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ 2816);
+
+
+
+class SignInGuard {
+    constructor(_authService, _router) {
+        this._authService = _authService;
+        this._router = _router;
+    }
+    canActivate(route, state) {
+        var _a;
+        if (this._authService.accessToken || (((_a = this._authService.user) === null || _a === void 0 ? void 0 : _a.id_user) && this._authService.user.id_user > 0)) {
+            this._router.navigate(['/home']);
+            return false;
+        }
+        return true;
+    }
+}
+SignInGuard.ɵfac = function SignInGuard_Factory(t) { return new (t || SignInGuard)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_services_auth_service__WEBPACK_IMPORTED_MODULE_0__.AuthService), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__.Router)); };
+SignInGuard.ɵprov = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: SignInGuard, factory: SignInGuard.ɵfac, providedIn: 'root' });
 
 
 /***/ }),
